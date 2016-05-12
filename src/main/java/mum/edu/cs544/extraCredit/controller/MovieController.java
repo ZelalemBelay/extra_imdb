@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import mum.edu.cs544.extraCredit.business.Artist;
+import mum.edu.cs544.extraCredit.business.Movie;
 import mum.edu.cs544.extraCredit.service.IArtistService;
 import mum.edu.cs544.extraCredit.service.IMovieService;
 
@@ -25,53 +26,53 @@ public class MovieController {
 		this.movieService = movieService;
 	}
 
-	   @RequestMapping({"/","artist"})
-	   public ModelAndView homepage() {
+	   @RequestMapping({"movie"})
+	   public ModelAndView homepageMovie() {
 		   
-		ModelAndView modelandview = new ModelAndView("ArtistCRUD");
+		ModelAndView modelandview = new ModelAndView("MovieCRUD");
 		return modelandview;
 	   }
 //	   
-	@RequestMapping(value = "/artists", method = RequestMethod.GET)
+	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 	public ModelAndView insert() {
 
-		List<Artist> artistList = artistService.getAllArtists();
-		ModelAndView modelandview = new ModelAndView("artistsListingPage");
-		modelandview.addObject(artistList);
+		List<Movie> moviesList = movieService.getAllMovies();
+		ModelAndView modelandview = new ModelAndView("moviesListingPage");
+		modelandview.addObject(moviesList);
 		
 		return modelandview;
 	}
 	
 // Insert Artist
 	
-	@RequestMapping(value = "/artist/add", method = RequestMethod.GET)
-	public ModelAndView add(@Valid Artist artist) {
+	@RequestMapping(value = "/movies/add", method = RequestMethod.GET)
+	public ModelAndView add(@Valid Movie movie) {
 
-		ModelAndView modelandview = new ModelAndView("ArtistCRUD");
+		ModelAndView modelandview = new ModelAndView("MovieCRUD");
 		modelandview.addObject("func","Add");
 
-		artistService.InsertArtist(artist);
+		movieService.saveMovie(movie);
 
 		return modelandview;
 	}
 	
-	@RequestMapping(value = "/artist/delete", method = RequestMethod.GET)
-	public ModelAndView update(@Valid Artist artist) {
+	@RequestMapping(value = "/movie/delete", method = RequestMethod.GET)
+	public ModelAndView update(@Valid Movie movie) {
 
-		ModelAndView modelandview = new ModelAndView("ArtistCRUD");
-		artistService.InsertArtist(artist);
+		ModelAndView modelandview = new ModelAndView("MovieCRUD");
+		movieService.saveMovie(movie);
 		modelandview.addObject("func","Update");
 
 		return modelandview;
 	}
 	
-	@RequestMapping(value = "/artist/update", method = RequestMethod.GET)
-	public ModelAndView delete(@Valid Artist artist) {
+	@RequestMapping(value = "/movie/update", method = RequestMethod.GET)
+	public ModelAndView delete(@Valid Movie movie) {
 
 		ModelAndView modelandview = new ModelAndView("ArtistCRUD");
 		modelandview.addObject("func","delete");
 
-		artistService.InsertArtist(artist);
+		movieService.saveMovie(movie);
 
 		return modelandview;
 	}

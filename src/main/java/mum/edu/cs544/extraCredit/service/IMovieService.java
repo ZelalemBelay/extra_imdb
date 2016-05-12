@@ -14,6 +14,8 @@ public interface IMovieService {
 	void deleteMovie(int id);
 	public Movie SearchMovieById(int id);
 	
+	public List<Movie> getAllMovies();
+
 	public List<Movie> SearchMovieByName(String name);
 	public List<Movie> SearchMoviesByGenre (Genre genre);
 	public List<Movie> SearchMoviesByRating (Rating rating);

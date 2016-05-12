@@ -10,7 +10,7 @@
 <body>
 
 <h1>IMDb</h1>
-<h2>Add Movie</h2>
+<h2>${func} Movie</h2>
 
 <form:form modelAttribute = "movie" action="${pageContext.request.contextPath}/movies/add" method="post">
 	

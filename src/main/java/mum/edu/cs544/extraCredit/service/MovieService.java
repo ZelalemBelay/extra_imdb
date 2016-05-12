@@ -84,4 +84,10 @@ public class MovieService implements IMovieService {
 		
 	}
 
+
+	@Override
+	public List<Movie> getAllMovies() {
+		return movieDao.findAll();
+	}
+
 }

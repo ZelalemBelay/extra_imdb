@@ -75,5 +75,4 @@
       class="org.springframework.context.support.ConversionServiceFactoryBean">
 </bean>
 	
-	<bean id = "filter" class = "mum.edu.cs544.extraCredit.PresentationModel.FilterCriteria"/>
 </beans>
