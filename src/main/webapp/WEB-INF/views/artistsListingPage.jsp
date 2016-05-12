@@ -16,17 +16,17 @@
 
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Place of Birth</th>
-				<th>Action</th>
+				<th>NAME</th>
+				<th>BIRTHPLACE</th>
+				<th>CHARACTER</th>
 
 			</tr>
 		</thead>
 
 		<c:forEach var="artist" items="${artistList}">
 			<tr>
-				<td>${artist.firstName} &nbsp; ${artist.lastName}</td>
-				<td>${artist.placeOfBirth}</td>
+				<td>${artist.name}</td>
+				<td>${artist.birthplace}</td>
 				<td>
 				<form action="artists/update/${artist.id}" method="get">
 						<button>Update</button>
