@@ -26,7 +26,7 @@ public class MovieController {
 		this.movieService = movieService;
 	}
 
-	   @RequestMapping({"movie"})
+	   @RequestMapping("movie")
 	   public ModelAndView homepageMovie() {
 		   
 		ModelAndView modelandview = new ModelAndView("MovieCRUD");
